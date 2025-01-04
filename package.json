@@ -1,0 +1,30 @@
+{
+    "name": "patience-social",
+    "version": "1.0.0",
+    "private": true,
+    "description": "A unique forum that rewards patience.",
+    "main": "server/app.js",
+    "type": "module",
+    "scripts": {
+        "start": "node server/app.js",
+        "build": "webpack",
+        "dev": "npm-run-all --parallel watch:server watch:build",
+        "watch:build": "webpack --watch",
+        "watch:server": "nodemon \"./server/app.js\" --watch \"./server\""
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "mongoose": "^8.8.3",
+        "string-to-color": "^2.2.2",
+        "ws": "^8.18.0"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^3.1.7",
+        "npm-run-all": "^4.1.5",
+        "webpack": "^5.97.1",
+        "webpack-cli": "^5.1.4"
+    }
+}

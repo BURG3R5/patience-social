@@ -1,0 +1,24 @@
+services:
+  application:
+    build: .
+    ports:
+      - "9991:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - database
+
+  database:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - patience-data:/data/db
+    healthcheck:
+      test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  patience-data:
