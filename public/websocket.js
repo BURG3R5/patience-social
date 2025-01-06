@@ -18,7 +18,8 @@
 import { displayMessage } from './message.js';
 import { setMedianPatience } from './ticker.js';
 
-const socket = new WebSocket(`ws://${window.location.host}`);
+const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+const socket = new WebSocket(`${protocol}://${window.location.host}`);
 
 socket.addEventListener('message', (event) => {
     setMedianPatience(JSON.parse(event.data).medianPatience);
