@@ -1,0 +1,24 @@
+name: Build and push Docker image
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build image
+      run: docker build . --tag burgers1312/private-repository:patience_social
+
+    - name: Log in
+      run: docker login -u burgers1312 -p $DOCKER_PAT
+      env:
+        DOCKER_PAT: ${{ secrets.DOCKER_PAT }}
+
+    - name: Push image
+      run: docker push burgers1312/private-repository:patience_social
