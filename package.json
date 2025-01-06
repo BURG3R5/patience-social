@@ -3,14 +3,14 @@
     "version": "1.0.0",
     "private": true,
     "description": "A unique forum that rewards patience.",
-    "main": "server/app.js",
+    "main": "backend/app.js",
     "type": "module",
     "scripts": {
-        "start": "node server/app.js",
+        "start": "node backend/app.js",
         "build": "webpack",
-        "dev": "npm-run-all --parallel watch:server watch:build",
-        "watch:build": "webpack --watch",
-        "watch:server": "nodemon \"./server/app.js\" --watch \"./server\""
+        "dev": "npm-run-all --parallel watch:backend watch:frontend",
+        "watch:frontend": "webpack --watch",
+        "watch:backend": "nodemon \"./backend/app.js\" --watch \"./backend\""
     },
     "dependencies": {
         "express": "^4.17.1",

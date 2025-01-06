@@ -33,7 +33,6 @@ export const placeholders = [
     "something boring :|",
 ];
 
-
 window.onload = function () {
     document.getElementById("username-input").style.color = stringToColor("anonymous");
     startTicker();

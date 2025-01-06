@@ -34,7 +34,10 @@ db.once('open', () => {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public'), {
+    extensions: ['html', 'css', 'js', 'ico'],
+    index: 'index.html'
+}));
 
 app.use(express.json());
 app.use('/api', routes);
