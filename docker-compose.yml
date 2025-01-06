@@ -2,9 +2,7 @@ services:
   application:
     build: .
     ports:
-      - "9991:3000"
-    environment:
-      - NODE_ENV=production
+      - "3000:3000"
     depends_on:
       - database
 
