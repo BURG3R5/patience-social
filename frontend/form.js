@@ -29,12 +29,14 @@ function sanitizeInput(input) {
 
 document.getElementById("submit-button").onclick = async function (event) {
     event.preventDefault();
+    const usernameInput = document.getElementById('username-input');
     const messageInput = document.getElementById('message-input');
     if (placeholders.indexOf(messageInput.textContent) !== -1) {
         messageInput.style.border = "2px solid red";
         return;
     }
 
+    usernameInput.textContent = sanitizeInput(usernameInput.textContent.trim());
     messageInput.textContent = sanitizeInput(messageInput.textContent.trim());
 
     const success = await submitMessage();
@@ -48,7 +50,6 @@ document.getElementById("submit-button").onclick = async function (event) {
 };
 
 document.getElementById("username-input").oninput = function (e) {
-    e.target.textContent = sanitizeInput(e.target.textContent);
     e.target.style.color = stringToColor(e.target.textContent);
 }
 
