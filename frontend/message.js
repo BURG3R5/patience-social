@@ -23,10 +23,12 @@ import { placeholders } from './script.js';
 let lastMessageTime = Date.now();
 
 function getColorBasedOnMedian(time, median) {
+    function lerp(a, b, t) {
+        return a + (b - a) * t;
+    }
+
     const ratio = Math.min(time / median, 1);
-    const red = Math.floor(255 * (1 - ratio));
-    const green = Math.floor(255 * ratio);
-    return `rgb(${red},${green},0)`;
+    return `rgb(${lerp(255, 73, ratio)},${lerp(97, 255, ratio)},${lerp(112, 154, ratio)})`;
 }
 
 export function displayMessage(message) {
@@ -45,15 +47,15 @@ export function displayMessage(message) {
 
     const waitedText = document.createElement('span');
     waitedText.textContent = ' waited ';
-    waitedText.style.color = 'grey';
+    waitedText.style.color = "#cccccc";
 
     const toSayText = document.createElement('span');
     toSayText.textContent = ' to say: ';
-    toSayText.style.color = 'grey';
+    toSayText.style.color = "#cccccc";
 
     const contentElement = document.createElement('span');
     contentElement.textContent = message.content;
-    contentElement.style.color = 'black';
+    contentElement.style.color = "#ffffff";
 
     const timestampElement = document.createElement('small');
     timestampElement.classList.add('message-timestamp');
@@ -109,7 +111,7 @@ export async function submitMessage() {
     }
 
     messageInput.textContent = randomChoice(placeholders);
-    messageInput.style.color = "grey";
+    messageInput.style.color = "#cccccc";
 
     const currentTime = new Date();
     let timeSinceLastMessage = currentTime - lastMessageTime;

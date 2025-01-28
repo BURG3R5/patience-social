@@ -3,7 +3,12 @@ html {
     margin: 0;
     padding: 0;
     font-family: 'Fira Code', monospace;
-    background-color: #f8f9fa;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+h1 {
+    color: #7c70ff;
 }
 
 input {
@@ -18,19 +23,21 @@ input {
     max-width: 800px;
     box-sizing: border-box;
     height: 100vh;
+    background-color: #000000;
 }
 
 #submit-button {
     font-weight: bold;
+    color: #7c70ff;
 }
 
 .message-area {
     width: 100%;
     height: 400px;
     overflow-y: scroll;
-    border: 1px solid #ccc;
+    border: 1px solid #7c70ff;
     padding: 0 10px;
-    background-color: #fff;
+    background-color: #0f1217;
     font-size: 14px;
     line-height: 1.5;
     scrollbar-width: none;
@@ -48,14 +55,13 @@ input {
     display: flex;
     justify-content: space-between;
     padding: 5px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #7c70ff;
 }
 
 .message.draft {
     border-bottom: none;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #7c70ff;
 }
-
 
 [contenteditable]:active,
 [contenteditable]:focus {
@@ -66,18 +72,15 @@ input {
 #username-input,
 #message-input {
     text-decoration: underline;
+    color: #ffffff;
 }
-
-/* #message-input:empty:before {
-    color: grey;
-} */
 
 .message-content {
     flex: 1;
 }
 
 .message-timestamp {
-    color: #888;
+    color: #cccccc;
     margin-left: 10px;
     white-space: nowrap;
 }
@@ -100,7 +103,7 @@ input {
     display: block;
     width: 200px;
     padding: 10px 0;
-    background-color: #333;
+    background-color: #7c70ff;
     color: #fff;
     text-align: center;
     text-decoration: none;
@@ -131,4 +134,21 @@ input {
 
 .message-form .form-group.col-auto {
     flex: 0;
+}
+
+.joining-span {
+    color: #cccccc;
+}
+
+.tooltip-inner {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.bs-tooltip-top .arrow::before {
+    border-top-color: #ffffff;
+}
+
+.bs-tooltip-bottom .arrow::before {
+    border-bottom-color: #ffffff;
 }

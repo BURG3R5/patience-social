@@ -40,8 +40,10 @@ export function setMedianPatience(median) {
 }
 
 function getColorBasedOnMedian(time, median) {
+    function lerp(a, b, t) {
+        return a + (b - a) * t;
+    }
+
     const ratio = Math.min(time / median, 1);
-    const red = Math.floor(255 * (1 - ratio));
-    const green = Math.floor(255 * ratio);
-    return `rgb(${red},${green},0)`;
+    return `rgb(${lerp(255, 73, ratio)},${lerp(97, 255, ratio)},${lerp(112, 154, ratio)})`;
 }

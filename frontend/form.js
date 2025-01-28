@@ -63,7 +63,7 @@ document.getElementById("username-input").onfocusout = function (e) {
 document.getElementById("message-input").onfocus = function (e) {
     if (placeholders.indexOf(e.target.textContent) !== -1) {
         e.target.textContent = "";
-        e.target.style.color = "black";
+        e.target.style.color = "#ffffff";
         e.target.style.border = "";
     }
 }
@@ -71,7 +71,7 @@ document.getElementById("message-input").onfocus = function (e) {
 document.getElementById("message-input").onfocusout = function (e) {
     if (e.target.textContent === "") {
         e.target.textContent = randomChoice(placeholders);
-        e.target.style.color = "grey";
+        e.target.style.color = "#ffffff";
     }
 }
 
@@ -91,7 +91,7 @@ document.getElementById("message-input").addEventListener("keydown", function (e
 
     if (placeholders.indexOf(e.target.textContent) !== -1) {
         e.target.textContent = "";
-        e.target.style.color = "black";
+        e.target.style.color = "#ffffff";
         e.target.style.border = "";
     }
 });
