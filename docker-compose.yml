@@ -1,12 +1,21 @@
 services:
   application:
-    build: .
+    container_name: "patience-social-app"
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
+    environment:
+      DATABASE_URI: "mongodb://patience-social-db:27017/patience-social"
+    volumes:
+      - .:/patience-social
+      - /patience-social/node_modules
     depends_on:
       - database
 
   database:
+    container_name: "patience-social-db"
     image: mongo:latest
     ports:
       - "27017:27017"

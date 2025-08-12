@@ -14,7 +14,7 @@ cd patience-social
 npm i
 
 # run project
-npm run dev
+docker compose up --build
 ```
 
 ## license

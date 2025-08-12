@@ -25,7 +25,7 @@ import { WebSocketServer } from 'ws';
 const app = express();
 const port = 3000;
 
-mongoose.connect('mongodb://database:27017/patience-social', {});
+mongoose.connect(process.env.DATABASE_URI, {});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
