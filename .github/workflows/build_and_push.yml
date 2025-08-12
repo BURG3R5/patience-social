@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Build image
-      run: docker build . --tag burgers1312/private-repository:patience_social
+      run: docker build . --tag burgers1312/private-repository:patience_social --file Dockerfile.prod
 
     - name: Log in
       run: docker login -u burgers1312 -p $DOCKER_PAT
